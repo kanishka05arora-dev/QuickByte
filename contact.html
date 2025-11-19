@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | QuickByte</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="logoFinal.png" alt="Quickbyte" class="logo-image" />
+        <span class="logo-text">QuickByte</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="food.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="signup.html">Sign Up</a></li>
+      </ul>
+      <div class="cart-icon" onclick="toggleCart()">
+        🛒
+        <span class="cart-count" id="cartCount">0</span>
+      </div>
+    </nav>
+  </header>
+
+  <main class="contact-container">
+    <h1>Let’s Taco ’Bout It 🌮</h1>
+    <p class="contact-subtitle">
+        Got a question, craving, or just wanna say hi? Slide into our inbox or drop us a DM on social — we promise we don’t bite 
+        (unless it’s pizza 🍕). We’ll get back to you faster than your food delivery!
+    </p>
+
+    <div class="contact-wrapper">
+      <!-- Contact Form -->
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <h3>QuickByte HQ</h3>
+        <p>📍 123 Food Street, Dehradun, India</p>
+        <p>📞 +91 98765 43210</p>
+        <p>✉️ support@quickbyte.com</p>
+        <h4>Follow us:</h4>
+        <p>🌐 Facebook | Instagram | Twitter</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="logoFinal.png" alt="QuickByte" class="footer-logo">
+        <span class="brand-text">QuickByte</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="food.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="signup.html">Sign Up</a></li>
+      </ul>
+      <p class="footer-copy">© 2025 QuickByte. All rights reserved. Made with ❤️ in India</p>
+    </div>
+  </footer>
+</body>
+</html>

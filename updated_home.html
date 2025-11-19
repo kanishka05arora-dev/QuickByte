@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuickByte</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <nav>
+        <div class="logo">
+          <img src="logoFinal.png" alt="Quickbyte" class="logo-image" />
+          <span class="logo-text">QuickByte</span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="food.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact Us!</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="signup.html">Sign Up</a></li>
+        </ul>
+        <div class="cart-icon" onclick="toggleCart()">
+          🛒 <span class="cart-count" id="cartCount">0</span>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Banner (Parallax) -->
+    <section class="parallax-hero">
+      <div class="parallax-overlay">
+        <h1>QuickByte</h1>
+        <h2>India's #1 food delivery app</h2>
+        <p>Experience fast & easy online ordering on the QuickByte app</p>
+        <div class="app-buttons">
+          <button>Get it on Google Play</button>
+          <button>Download on the App Store</button>
+        </div>
+        <br />
+        <p>Scroll down ↓</p>
+      </div>
+    </section>
+
+    <!-- Location + Search -->
+    <section class="location-search-section">
+      <div class="location-search-container">
+        <div class="location-input-container">
+          <div class="location-icon">📍</div>
+          <input
+            type="text"
+            class="location-input"
+            placeholder="Enter your delivery location"
+          />
+          <div class="dropdown-arrow">▼</div>
+        </div>
+        <div class="search-input-container">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Search for restaurant, item or more"
+          />
+          <div class="search-icon">🔍</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Menu -->
+    <main class="container">
+      <div class="page-title">
+        <h1>Delicious Food Is Waiting For You</h1>
+        <p>
+          Satisfy your cravings with our carefully curated selection of dishes
+          from your favourite restaurants.
+        </p>
+      </div>
+
+      <div class="category-filter">
+        <button class="filter-btn active" onclick="filterMenu('all')">
+          All Items
+        </button>
+        <button class="filter-btn" onclick="filterMenu('pizza')">Pizza</button>
+        <button class="filter-btn" onclick="filterMenu('burger')">
+          Burgers
+        </button>
+        <button class="filter-btn" onclick="filterMenu('pasta')">Pasta</button>
+        <button class="filter-btn" onclick="filterMenu('dessert')">
+          Desserts
+        </button>
+        <button class="filter-btn" onclick="filterMenu('drinks')">
+          Drinks
+        </button>
+      </div>
+
+      <div class="menu-grid" id="menuGrid">
+        <!-- Pizza Items -->
+        <div class="menu-item" data-category="pizza">
+          <div class="item-image">
+            <img src="Margherita-Pizza.webp" alt="Pizza" />
+          </div>
+          <div class="item-content">
+            <h3 class="item-title">Margherita Pizza</h3>
+            <p class="item-description">
+              Classic delight with 100% real mozzarella cheese.
+            </p>
+            <div class="item-meta">
+              <span class="item-time">⏱ 30–35 mins</span>
+              <span class="item-address">📍HungerSpot</span>
+            </div>
+            <div class="item-footer">
+              <span class="item-price">₹199</span>
+              <button
+                class="add-to-cart"
+                onclick="addToCart('Margherita Pizza', 199,event)"
+              >
+                <span>Add to Cart</span> ➕
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="pizza">
+          <div class="item-image">
+            <img src="pepporoni.png" alt="Veggie Supreme" />
+          </div>
+          <div class="item-content">
+            <h3 class="item-title">Veggie Supreme</h3>
+            <p class="item-description">
+              Loaded with fresh veggies & cheese on a crispy base.
+            </p>
+            <div class="item-meta">
+              <span class="item-time">⏱ 30–35 mins </span>
+              <span class="item-address">📍 Dadupur</span>
+            </div>
+            <div class="item-footer">
+              <span class="item-price">₹250</span>
+              <button
+                class="add-to-cart"
+                onclick="addToCart('Veggie Supreme', 250,event)"
+              >
+                <span>Add to Cart</span> ➕
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Burger Items -->
+        <div class="menu-item" data-category="burger">
+          <div class="item-image">
+            <img src="classicburger.webp" alt="Classic Cheeseburger" />
+          </div>
+          <div class="item-content">
+            <h3 class="item-title">Classic Cheeseburger</h3>
+            <p class="item-description">
+              Juicy patty, cheddar cheese, lettuce & tomato.
+            </p>
+            <div class="item-meta">
+              <span class="item-time">⏱ 20–30 mins</span>
+              <span class="item-address"> 📍Prem Nagar</span>
+            </div>
+            <div class="item-footer">
+              <span class="item-price">₹110</span>
+              <button
+                class="add-to-cart"
+                onclick="addToCart('Classic Cheeseburger', 110,event)"
+              >
+                <span>Add to Cart</span> ➕
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="burger">
+          <div class="item-image">
+            <img src="Chicken-burger (1).jpg" alt="Crispy Chicken Burger" />
+          </div>
+          <div class="item-content">
+            <h3 class="item-title">Crispy Chicken Burger</h3>
+            <p class="item-description">
+              Crispy chicken fillet with mayo & lettuce in a bun.
+            </p>
+            <div class="item-meta">
+              <span class="item-time">⏱ 10–15 mins</span>
+              <span class="item-address"> 📍yumSpot</span>
+            </div>
+            <div class="item-footer">
+              <span class="item-price">₹120</span>
+              <button
+                class="add-to-cart"
+                onclick="addToCart('Crispy Chicken Burger', 120,event)"
+              >
+                <span>Add to Cart</span> ➕
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pasta Items -->
+        <div class="menu-item" data-category="pasta">
+          <div class="item-image">
+            <img src="Pasta.png" alt="Creamy Alfredo Pasta" />
+          </div>
+          <div class="item-content">
+            <h3 class="item-title">Creamy Alfredo Pasta</h3>
+            <p class="item-description">
+              Rich creamy Alfredo sauce with parmesan & herbs.
+            </p>
+            <div class="item-meta">
+              <span class="item-time">⏱ 30–35 mins</span>
+              <span class="item-address">📍justeat</span>
+            </div>
+            <div class="item-footer">
+              <span class="item-price">₹210</span>
+              <button
+                class="add-to-cart"
+                onclick="addToCart('Creamy Alfredo Pasta', 210,event)"
+              >
+                <span>Add to Cart</span> ➕
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="pasta">
+          <div class="item-image">
+            <img src="Penne-Arrabbiata.webp" alt="Spicy Arrabiata" />
+          </div>
+          <div class="item-content">
+            <h3 class="item-title">Spicy Arrabiata</h3>
+            <p class="item-description">
+              Zesty tomato-based sauce with garlic & chili flakes.
+            </p>
+            <div class="item-meta">
+              <span class="item-time">⏱ 30–35 mins</span>
+              <span class="item-address"> 📍Dholakpur</span>
+            </div>
+            <div class="item-footer">
+              <span class="item-price">₹299</span>
+              <button
+                class="add-to-cart"
+                onclick="addToCart('Spicy Arrabiata', 299,event)"
+              >
+                <span>Add to Cart</span> ➕
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dessert Items -->
+        <div class="menu-item" data-category="dessert">
+          <div class="item-image">
+            <img src="chocolate-cake-slice.jpg" alt="Chocolate Brownie" />
+          </div>
+          <div class="item-content">
+            <h3 class="item-title">Chocolate Brownie</h3>
+            <p class="item-description">
+              Gooey chocolate brownie topped with walnuts.
+            </p>
+            <div class="item-meta">
+              <span class="item-time">⏱ 30–35 mins</span>
+              <span class="item-address"> 📍BigBytes</span>
+            </div>
+            <div class="item-footer">
+              <span class="item-price">₹199</span>
+              <button
+                class="add-to-cart"
+                onclick="addToCart('Chocolate Brownie', 199,event)"
+              >
+                <span>Add to Cart</span> ➕
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="dessert">
+          <div class="item-image">
+            <img src="vanilla Cream.jpg" alt="Vanilla Ice Cream" />
+          </div>
+          <div class="item-content">
+            <h3 class="item-title">Vanilla Ice Cream</h3>
+            <p class="item-description">
+              Smooth & creamy vanilla ice cream scoop.
+            </p>
+            <div class="item-meta">
+              <span class="item-time">⏱ 30–35 mins</span>
+              <span class="item-address">📍Letseat</span>
+            </div>
+            <div class="item-footer">
+              <span class="item-price">₹139</span>
+              <button
+                class="add-to-cart"
+                onclick="addToCart('Vanilla Ice Cream', 139,event)"
+              >
+                <span>Add to Cart</span> ➕
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Drinks Items -->
+        <div class="menu-item" data-category="drinks">
+          <div class="item-image">
+            <img src="fresh-lemonade.jpg" alt="Chilled Cola" />
+          </div>
+          <div class="item-content">
+            <h3 class="item-title">Chilled Lemonade</h3>
+            <p class="item-description">Refreshing lemonade served cold.</p>
+            <div class="item-meta">
+              <span class="item-time">⏱ 30–35 mins</span>
+              <span class="item-address"> 📍Cafe</span>
+            </div>
+            <div class="item-footer">
+              <span class="item-price">₹99</span>
+              <button
+                class="add-to-cart"
+                onclick="addToCart('Chilled Lemonade', 99,event)"
+              >
+                <span>Add to Cart</span> ➕
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="drinks">
+          <div class="item-image">
+            <img src="Strawberry-Shake.jpg" alt="Strawberry Milkshake" />
+          </div>
+          <div class="item-content">
+            <h3 class="item-title">Strawberry Milkshake</h3>
+            <p class="item-description">
+              Creamy milkshake with fresh strawberries.
+            </p>
+            <div class="item-meta">
+              <span class="item-time">⏱ 30–35 mins</span>
+              <span class="item-address"> 📍Letseat</span>
+            </div>
+            <div class="item-footer">
+              <span class="item-price">₹129</span>
+              <button
+                class="add-to-cart"
+                onclick="addToCart('Strawberry Milkshake', 129,event)"
+              >
+                <span>Add to Cart</span> ➕
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="drinks">
+          <div class="item-image">
+            <img src="latte.jpg" alt="Latte" />
+          </div>
+          <div class="item-content">
+            <h3 class="item-title">Latte</h3>
+            <p class="item-description">Creamy,milky,smooth,light coffee.</p>
+            <div class="item-meta">
+              <span class="item-time">⏱ 30–35 mins</span>
+              <span class="item-address"> 📍Killcrave</span>
+            </div>
+            <div class="item-footer">
+              <span class="item-price">₹129</span>
+              <button
+                class="add-to-cart"
+                onclick="addToCart('Latte', 129,event)"
+              >
+                <span>Add to Cart</span> ➕
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fries Items -->
+        <div class="menu-item" data-category="fries">
+          <div class="item-image">
+            <img src="fries.webp" alt="Crispy Fries" />
+          </div>
+          <div class="item-content">
+            <h3 class="item-title">Crispy Fries</h3>
+            <p class="item-description">
+              Golden, crispy, perfectly salted potato fries.
+            </p>
+            <div class="item-meta">
+              <span class="item-time">⏱ 30–35 mins</span>
+              <span class="item-address"> 📍Hotpot</span>
+            </div>
+            <div class="item-footer">
+              <span class="item-price">₹99</span>
+              <button
+                class="add-to-cart"
+                onclick="addToCart('Crispy Fries', 99,event)"
+              >
+                <span>Add to Cart</span> ➕
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+      <div class="cart-header">
+        <h2>Your Order</h2>
+        <button class="close-cart" onclick="toggleCart()">✕</button>
+      </div>
+      <div class="cart-items" id="cartItems">
+        <p style="text-align: center; color: #666; padding: 2rem">
+          Your cart is empty
+        </p>
+      </div>
+      <div id="cartCheckoutSection"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="logoFinal.png" alt="QuickByte" class="footer-logo" />
+          <span class="brand-text">QuickByte</span>
+        </div>
+        <ul class="footer-links">
+          <li><a href="food.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="signup.html">Sign Up</a></li>
+        </ul>
+        <p class="footer-copy">
+          © 2025 QuickByte. All rights reserved. Made with ❤️ in India
+        </p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scriptfinal.js"></script>
+  </body>
+</html>
